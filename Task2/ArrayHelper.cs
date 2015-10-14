@@ -8,7 +8,17 @@ namespace Task2
         public static int CalculateSumOfRow(int[] row, int direction)
         {
             if (row.Length == 0) return int.MaxValue;  //С учетом того что пустую строку кидаем вниз матрицы
-            return direction * row.Sum();
+            checked
+            {
+                try
+                {
+                    return direction * row.Sum();
+                }
+                catch (OverflowException)
+                {
+                    return int.MaxValue;
+                }
+            }
         }
 
         public static int FindMaxInRow(int[] row, int direction)
