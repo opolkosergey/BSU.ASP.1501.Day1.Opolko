@@ -11,6 +11,18 @@ namespace Task2
             return direction * row.Sum();
         }
 
+        public static int FindMaxInRow(int[] row, int direction)
+        {
+            if (row.Length == 0) return int.MaxValue;  //С учетом того что пустую строку кидаем вниз матрицы
+            return direction * row.Max();
+        }
+
+        public static int FindMinInRow(int[] row, int direction)
+        {
+            if (row.Length == 0) return int.MaxValue;  //С учетом того что пустую строку кидаем вниз матрицы
+            return direction * row.Min();
+        }
+
         public static void DisplayArray(int[][] array)
         {
             foreach (int[] row in array)
@@ -21,7 +33,6 @@ namespace Task2
                 Console.WriteLine();
             }
             Console.WriteLine("----------------------------------------");
-        }
-        
+        } 
     }
 }
