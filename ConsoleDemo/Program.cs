@@ -8,21 +8,21 @@ namespace ConsoleDemo
     {
         static void Main(string[] args)
         {
-            #region Demo task1
-            double a, precision;
-            int power;
+            //#region Demo task1
+            //double a, precision;
+            //int power;
 
-            Console.Write("Enter A (double):");
-            var isAParsedCorrectly = double.TryParse(Console.ReadLine(), out a);
-            Console.Write("Enter power (int):");
-            var isPowerParsedCorrectly = int.TryParse(Console.ReadLine(), out power);
-            Console.Write("Enter a precision (double):");
-            var isPrecisionParsedCorrectly = double.TryParse(Console.ReadLine(), out precision);
+            //Console.Write("Enter A (double):");
+            //var isAParsedCorrectly = double.TryParse(Console.ReadLine(), out a);
+            //Console.Write("Enter power (int):");
+            //var isPowerParsedCorrectly = int.TryParse(Console.ReadLine(), out power);
+            //Console.Write("Enter a precision (double):");
+            //var isPrecisionParsedCorrectly = double.TryParse(Console.ReadLine(), out precision);
 
-            if (isAParsedCorrectly && isPowerParsedCorrectly && isPrecisionParsedCorrectly)
-                Console.WriteLine("Result = {0}", Newton.Root(a, power, precision));
-            else Console.WriteLine("Error(s) of parsing");
-            #endregion
+            //if (isAParsedCorrectly && isPowerParsedCorrectly && isPrecisionParsedCorrectly)
+            //    Console.WriteLine("Result = {0}", Newton.Root(a, power, precision));
+            //else Console.WriteLine("Error(s) of parsing");
+            //#endregion
 
             #region Demo task2
             int[][] jaggedArray = new int[][] 

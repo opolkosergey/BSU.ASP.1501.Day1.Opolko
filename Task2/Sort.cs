@@ -10,14 +10,14 @@
         /// <param name="direction">A positive number for ascending sort.A negative number for descending sort</param>
         public static void SortByTag(int[][] array, string tag,  int direction)
         {
-            if (array.Length == 0) return;
+            if (array == null) return;
             if (direction == 0) return;
-
-            if (direction > 0) direction = 1;   // Чтобы не было переполнения засчет направления сортировки
-            if (direction < 0) direction = -1;  // нам важен только знак
 
             if (tag == "bySum" || tag == "byMin" || tag == "byMax")
             {
+                if (direction > 0) direction = 1;   // Чтобы не было переполнения засчет направления сортировки
+                if (direction < 0) direction = -1;  // нам важен только знак
+
                 for (int i = 0; i < array.Length; i++)
                 {
                     for (int j = array.Length - 1; j > i; j--)
