@@ -1,50 +1,27 @@
-﻿namespace Task2
+﻿using System;
+
+namespace Task2
 {
     public static class Sort
     {
+        public delegate int ResultInRow(int[] array);
+
         /// <summary>
         /// Method to sort the rows of the matrix in order of increasing (decreasing) by tag and direction
         /// </summary>
         /// <param name="array">Input array</param>
-        /// <param name="tag">Allowed only values : "bySum","byMin","byMax"</param>
-        /// <param name="direction">A positive number for ascending sort.A negative number for descending sort</param>
-        public static void SortByTag(int[][] array, string tag,  int direction)
+        /// <param name="compare"></param>
+        public static void BubbleSort(int[][] array, ResultInRow compare)
         {
-            if (array == null) return;
-            if (direction == 0) return;
+            if (array == null) throw new ArgumentNullException();
 
-            if (tag == "bySum" || tag == "byMin" || tag == "byMax")
+            for (int i = 0; i < array.Length; i++)
             {
-                if (direction > 0) direction = 1;   // Чтобы не было переполнения засчет направления сортировки
-                if (direction < 0) direction = -1;  // нам важен только знак
-
-                for (int i = 0; i < array.Length; i++)
+                for (int j = array.Length - 1; j > i; j--)
                 {
-                    for (int j = array.Length - 1; j > i; j--)
+                    if (compare(array[i]) > compare(array[j]))
                     {
-                        switch (tag)
-                        {
-                            case "bySum":
-                                if (ArrayHelper.CalculateSumOfRow(array[i], direction) > ArrayHelper.CalculateSumOfRow(array[j], direction))
-                                {
-                                    ReplaceRows(ref array[i], ref array[j]);
-                                }
-                                break;
-
-                            case "byMin":
-                                if (ArrayHelper.FindMinInRow(array[i], direction) > ArrayHelper.FindMinInRow(array[j], direction))
-                                {
-                                    ReplaceRows(ref array[i], ref array[j]);
-                                }
-                                break;
-
-                            case "byMax":
-                                if (ArrayHelper.FindMaxInRow(array[i], direction) > ArrayHelper.FindMaxInRow(array[j], direction))
-                                {
-                                    ReplaceRows(ref array[i], ref array[j]);
-                                }
-                                break;
-                        }
+                        ReplaceRows(ref array[i], ref array[j]);
                     }
                 }
             }

@@ -2,7 +2,7 @@
 
 namespace Task1
 {
-    public static class Newton
+    public static class MathMethods
     {
         /// <summary>
         /// Method of calculating the root of the n-th degree among the Newton method with a given accuracy
@@ -11,8 +11,15 @@ namespace Task1
         /// <param name="power">The degree of root</param>
         /// <param name="precision">Necessary accuracy of calculation</param>
         /// <returns></returns>
-        public static double Root(double a, int power, double precision)
+        public static double RootByNewtonMethod(double a, int power, double precision)
         {
+            if (precision > 1 || precision < 0)
+                throw new ArgumentException();
+            if (a < 0) 
+                throw new ArgumentException();
+            if (power < 1)
+                throw new ArgumentException();
+            
             double possibleResult = 1;
             double intermediateResult = Math.Pow(possibleResult, power);
 
