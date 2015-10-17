@@ -7,13 +7,14 @@ namespace Task2
         public delegate int ResultInRow(int[] array);
 
         /// <summary>
-        /// Method to sort the rows of the matrix in order of increasing (decreasing) by tag and direction
+        /// Method to sort the rows of the matrix 
         /// </summary>
         /// <param name="array">Input array</param>
-        /// <param name="compare"></param>
+        /// <param name="compare">Method of calculating the value for which you want to sort the rows </param>
         public static void BubbleSort(int[][] array, ResultInRow compare)
         {
-            if (array == null) throw new ArgumentNullException();
+            if (array == null) 
+                throw new ArgumentNullException();
 
             for (int i = 0; i < array.Length; i++)
             {
