@@ -13,12 +13,20 @@ namespace Task1
         /// <returns></returns>
         public static double RootByNewtonMethod(double a, int power, double precision)
         {
-            if (precision > 1 || precision < 0)
-                throw new ArgumentException();
-            if (a < 0) 
-                throw new ArgumentException();
-            if (power < 1)
-                throw new ArgumentException();
+	        if (precision > 1 || precision < 0)
+	        {
+				throw new ArgumentException(nameof(precision));
+			}
+
+	        if (a < 0)
+	        {
+				throw new ArgumentException(nameof(precision));
+			}
+
+	        if (power < 1)
+	        {
+				throw new ArgumentException(nameof(precision));
+			}                
             
             double possibleResult = 1;
             double intermediateResult = Math.Pow(possibleResult, power);
@@ -28,6 +36,7 @@ namespace Task1
                 possibleResult = ((power - 1) * possibleResult + a / Math.Pow(possibleResult, power - 1)) / power;
                 intermediateResult = Math.Pow(possibleResult, power);
             }
+
             return possibleResult;
         }
     }
